@@ -1,26 +1,27 @@
 // Sample Rust file to test the CodeLens extension
+// Expected reference counts are shown in comments
 
-// This function should show "2 references"
+// Expected: 2 references
 fn calculate_area(width: f64, height: f64) -> f64 {
     width * height
 }
 
-// This struct should show "3 references"
+// Expected: 3 references
 struct Rectangle {
     width: f64,
     height: f64,
 }
 
-// This implementation should show "1 reference"
+// Expected: 1 reference
 impl Rectangle {
     fn new(width: f64, height: f64) -> Self {
         Rectangle { width, height }
     }
-    
+
     fn area(&self) -> f64 {
         calculate_area(self.width, self.height)  // Reference 1 to calculate_area
     }
-    
+
     fn perimeter(&self) -> f64 {
         2.0 * (self.width + self.height)
     }

@@ -4,25 +4,20 @@ A Zed extension that provides a foundation for displaying symbol references inli
 
 ## Status
 
-This is a **minimal working extension** that demonstrates the basic structure for a Zed extension. The full CodeLens functionality is planned for future implementation when Zed's extension API supports more advanced features.
+This is a **working theme extension** that provides a foundation for future CodeLens functionality. The extension has been simplified to avoid WebAssembly compilation issues and currently provides a custom theme.
 
 ## Current Features
 
 - ✅ **Basic Extension Structure**: Properly configured Zed extension
-- ✅ **Rust Compilation**: Compiles to WebAssembly successfully
-- ✅ **Extension Registration**: Registers with Zed's extension system
-- 🚧 **CodeLens Display**: Planned for future implementation
+- ✅ **Theme Support**: Includes "CodeLens Dark" theme
+- ✅ **No Compilation Required**: Installs without WebAssembly build issues
+- 🚧 **CodeLens Display**: Planned for future implementation when Zed's extension API supports it
 
 ## Installation
 
 ### Prerequisites
 
-1. **Rust**: Install via rustup
-   ```bash
-   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-   source "$HOME/.cargo/env"
-   rustup target add wasm32-unknown-unknown
-   ```
+No special prerequisites required! This extension is theme-only and doesn't require Rust compilation.
 
 ### Development Installation
 
@@ -32,12 +27,7 @@ This is a **minimal working extension** that demonstrates the basic structure fo
    cd zed_codelens
    ```
 
-2. Build the extension:
-   ```bash
-   ./build.sh
-   ```
-
-3. Install as a dev extension in Zed:
+2. Install as a dev extension in Zed:
    - Open Zed
    - Go to Extensions (Cmd/Ctrl + Shift + X)
    - Click "Install Dev Extension"
