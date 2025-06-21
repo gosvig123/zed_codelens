@@ -3,5 +3,5 @@ name = "CodeLens References"
 version = "0.1.0"
 schema_version = 1
 authors = ["Kristian Gosvig <k.gosvig@methinks.es>"]
-description = "Display symbol references inline using tree-sitter"
+description = "A minimal extension foundation for displaying symbol references inline"
 repository = "https://github.com/gosvig123/zed_codelens"
