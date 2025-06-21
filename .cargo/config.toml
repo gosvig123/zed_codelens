@@ -1,5 +1,8 @@
 [build]
-target = "wasm32-wasip2"
+target = "wasm32-wasip1"
+
+[target.wasm32-wasip1]
+rustflags = ["-C", "target-feature=+bulk-memory"]
 
 [target.wasm32-unknown-unknown]
 rustflags = ["-C", "target-feature=+bulk-memory"]
