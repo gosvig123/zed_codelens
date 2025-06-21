@@ -1,0 +1,7 @@
+id = "codelens-references"
+name = "CodeLens References"
+version = "0.1.0"
+schema_version = 1
+authors = ["Kristian Gosvig <leasemobil@gmail.com>"]
+description = "Display symbol references inline using tree-sitter"
+repository = "https://github.com/gosvig123/zed_codelens"
