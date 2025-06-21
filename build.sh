@@ -13,20 +13,20 @@ if ! command -v rustc &> /dev/null; then
     exit 1
 fi
 
-# Check if wasm32-unknown-unknown target is installed
-if ! rustup target list --installed | grep -q "wasm32-unknown-unknown"; then
-    echo "Installing wasm32-unknown-unknown target..."
-    rustup target add wasm32-unknown-unknown
+# Check if wasm32-wasip2 target is installed
+if ! rustup target list --installed | grep -q "wasm32-wasip2"; then
+    echo "Installing wasm32-wasip2 target..."
+    rustup target add wasm32-wasip2
 fi
 
 # Build the extension
 echo "Building WebAssembly module..."
-cargo build --target wasm32-unknown-unknown --release
+cargo build --target wasm32-wasip2 --release
 
 # Check if build was successful
 if [ $? -eq 0 ]; then
     echo "✅ Build successful!"
-    echo "Extension built at: target/wasm32-unknown-unknown/release/codelens_references.wasm"
+    echo "Extension built at: target/wasm32-wasip2/release/codelens_references.wasm"
     echo ""
     echo "To install as a dev extension in Zed:"
     echo "1. Open Zed"

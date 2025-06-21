@@ -10,7 +10,7 @@
 
 2. **WebAssembly Target**: Add the WebAssembly compilation target
    ```bash
-   rustup target add wasm32-unknown-unknown
+   rustup target add wasm32-wasip2
    ```
 
 3. **Zed Editor**: Download and install Zed from [zed.dev](https://zed.dev)
@@ -29,7 +29,7 @@
    
    Or manually:
    ```bash
-   cargo build --target wasm32-unknown-unknown --release
+   cargo build --target wasm32-wasip2 --release
    ```
 
 ## Installing in Zed
@@ -75,7 +75,7 @@ struct Rectangle {
 
 ### Extension Not Loading
 - Check that the build completed successfully
-- Verify the `.wasm` file exists in `target/wasm32-unknown-unknown/release/`
+- Verify the `.wasm` file exists in `target/wasm32-wasip2/release/`
 - Try restarting Zed after installation
 
 ### No Reference Counts Showing
@@ -85,7 +85,7 @@ struct Rectangle {
 
 ### Build Errors
 - Ensure Rust is installed via rustup (not homebrew or other package managers)
-- Verify the `wasm32-unknown-unknown` target is installed
+- Verify the `wasm32-wasip2` target is installed
 - Check that all dependencies in `Cargo.toml` are available
 
 ## Uninstalling
