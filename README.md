@@ -1,15 +1,28 @@
 # CodeLens References Extension for Zed
 
-A Zed extension that displays symbol references inline using tree-sitter, similar to VS Code's CodeLens feature.
+A Zed extension that provides a foundation for displaying symbol references inline, similar to VS Code's CodeLens feature.
 
-## Features
+## Status
 
-- **Inline Reference Display**: Shows the number of references for functions, structs, and other symbols directly in the editor
-- **Tree-sitter Integration**: Uses tree-sitter for accurate symbol detection and parsing
-- **Multi-language Support**: Currently supports Rust, with plans to add more languages
-- **Real-time Updates**: Reference counts update as you edit your code
+This is a **minimal working extension** that demonstrates the basic structure for a Zed extension. The full CodeLens functionality is planned for future implementation when Zed's extension API supports more advanced features.
+
+## Current Features
+
+- ✅ **Basic Extension Structure**: Properly configured Zed extension
+- ✅ **Rust Compilation**: Compiles to WebAssembly successfully
+- ✅ **Extension Registration**: Registers with Zed's extension system
+- 🚧 **CodeLens Display**: Planned for future implementation
 
 ## Installation
+
+### Prerequisites
+
+1. **Rust**: Install via rustup
+   ```bash
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   source "$HOME/.cargo/env"
+   rustup target add wasm32-unknown-unknown
+   ```
 
 ### Development Installation
 
@@ -19,48 +32,33 @@ A Zed extension that displays symbol references inline using tree-sitter, simila
    cd zed_codelens
    ```
 
-2. Install as a dev extension in Zed:
+2. Build the extension:
+   ```bash
+   ./build.sh
+   ```
+
+3. Install as a dev extension in Zed:
    - Open Zed
    - Go to Extensions (Cmd/Ctrl + Shift + X)
    - Click "Install Dev Extension"
    - Select the `zed_codelens` directory
 
-### From Zed Extensions Registry
+## Current Status
 
-Once published, you can install it directly from the Zed extensions registry:
-- Open Zed
-- Go to Extensions (Cmd/Ctrl + Shift + X)
-- Search for "CodeLens References"
-- Click Install
+This extension currently provides:
 
-## Usage
+- ✅ **Basic Extension Framework**: A working Zed extension that loads successfully
+- ✅ **WebAssembly Compilation**: Rust code compiles to WASM for Zed
+- ✅ **Extension Registration**: Properly registers with Zed's extension system
 
-Once installed, the extension will automatically:
+## Planned Features
 
-1. **Detect Symbols**: Identify functions, structs, enums, traits, and other symbols in your Rust code
-2. **Count References**: Find all references to each symbol within the current file
-3. **Display Inline**: Show reference counts above symbol definitions
+The full CodeLens functionality will include:
 
-### Example
-
-```rust
-// 2 references
-fn calculate_sum(a: i32, b: i32) -> i32 {
-    a + b
-}
-
-// 1 reference  
-struct Point {
-    x: f64,
-    y: f64,
-}
-
-fn main() {
-    let result = calculate_sum(5, 3);  // Reference 1
-    let point = Point { x: 1.0, y: 2.0 };  // Reference 1
-    println!("Sum: {}", calculate_sum(10, 20));  // Reference 2
-}
-```
+- 🚧 **Symbol Detection**: Identify functions, structs, enums, traits in Rust code
+- 🚧 **Reference Counting**: Count symbol usage within files
+- 🚧 **Inline Display**: Show reference counts above definitions
+- 🚧 **Multi-language Support**: Support for JavaScript, TypeScript, Python, etc.
 
 ## Supported Languages
 
