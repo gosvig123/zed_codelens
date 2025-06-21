@@ -1,4 +1,5 @@
-use zed_extension_api::{self as zed, CodeLabel, CodeLabelSpan, Range, Result};
+use zed_extension_api::{self as zed, CodeLabel, CodeLabelSpan, Range, LanguageServerId};
+use zed_extension_api::lsp::{Completion, Symbol};
 use std::collections::HashMap;
 
 struct CodelensExtension {
@@ -36,6 +37,37 @@ impl zed::Extension for CodelensExtension {
         Self {
             cached_symbols: HashMap::new(),
         }
+    }
+
+    fn label_for_symbol(
+        &self,
+        _language_server_id: &LanguageServerId,
+        symbol: Symbol,
+    ) -> Option<CodeLabel> {
+        // For now, just return a simple label showing the symbol name
+        // In a full implementation, this would analyze the symbol and show reference counts
+        let label_text = format!("Symbol: {}", symbol.name);
+
+        Some(CodeLabel {
+            spans: vec![CodeLabelSpan::literal(label_text, None)],
+            filter_range: Range { start: 0, end: 0 },
+            code: symbol.name,
+        })
+    }
+
+    fn label_for_completion(
+        &self,
+        _language_server_id: &LanguageServerId,
+        completion: Completion,
+    ) -> Option<CodeLabel> {
+        // For now, just return a simple label showing the completion
+        let label_text = format!("Completion: {}", completion.label);
+
+        Some(CodeLabel {
+            spans: vec![CodeLabelSpan::literal(label_text, None)],
+            filter_range: Range { start: 0, end: 0 },
+            code: completion.label,
+        })
     }
 }
 
