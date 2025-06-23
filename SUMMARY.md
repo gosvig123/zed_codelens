@@ -2,7 +2,7 @@
 
 ## What We Built
 
-I've successfully created a Zed extension that displays symbol references inline using tree-sitter, similar to VS Code's CodeLens feature. This extension shows reference counts above function definitions, struct definitions, and other symbols in Rust code.
+I've successfully created a comprehensive Zed extension that displays symbol references inline using tree-sitter, similar to VS Code's CodeLens feature. This extension shows reference counts above symbol definitions across multiple languages including **Rust, JavaScript, and TypeScript** with **cross-file reference detection**.
 
 ## Project Structure
 
@@ -13,16 +13,27 @@ zed_codelens/
 ├── src/
 │   └── lib.rs            # Main extension logic (Rust → WebAssembly)
 ├── languages/
-│   └── rust/
-│       ├── config.toml   # Language configuration
-│       ├── highlights.scm # Syntax highlighting rules
-│       └── symbols.scm   # Symbol extraction queries
+│   ├── rust/
+│   │   ├── config.toml   # Rust language configuration
+│   │   ├── highlights.scm # Rust syntax highlighting rules
+│   │   └── symbols.scm   # Rust symbol extraction queries
+│   ├── javascript/
+│   │   ├── config.toml   # JavaScript language configuration
+│   │   ├── highlights.scm # JavaScript syntax highlighting rules
+│   │   └── symbols.scm   # JavaScript symbol extraction queries
+│   └── typescript/
+│       ├── config.toml   # TypeScript language configuration
+│       ├── highlights.scm # TypeScript syntax highlighting rules
+│       └── symbols.scm   # TypeScript symbol extraction queries
 ├── target/               # Build artifacts
 │   └── wasm32-unknown-unknown/
 │       └── release/
 │           └── codelens_references.wasm  # Compiled extension
-├── test_sample.rs        # Test file with various Rust symbols
-├── demo.rs              # Demo file for testing
+├── test_sample.rs        # Test file with Rust symbols
+├── test_sample.js        # Test file with JavaScript symbols
+├── test_sample.ts        # Test file with TypeScript symbols
+├── test_cross_file.js    # Cross-file JavaScript test
+├── test_cross_file.ts    # Cross-file TypeScript test
 ├── build.sh             # Build script
 ├── INSTALLATION.md      # Installation guide
 ├── README.md           # Project documentation
